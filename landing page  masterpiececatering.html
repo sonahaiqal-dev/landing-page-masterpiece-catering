@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterPiece Catering - Solusi Nasi Box & Event</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-gold: #D4AF37;
+            --color-gold-dark: #aa8c2c;
+            --color-black: #1a1a1a;
+            --color-grey: #555555;
+            --color-light: #f9f9f9;
+            --color-white: #ffffff;
+            --font-main: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --padding-section: 80px 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-grey);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--color-black);
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .text-center { text-align: center; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--color-gold);
+            color: var(--color-white);
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--color-gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .small-note {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--color-black);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: 0.4s;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-white); 
+        }
+        
+        header.scrolled .logo {
+            color: var(--color-black);
+        }
+
+        .header-btn {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+        }
+
+        .hero {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-text-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+        }
+
+        .hero h1 {
+            color: var(--color-white);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            color: var(--color-light);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .menu-section {
+            padding: var(--padding-section);
+            background-color: var(--color-light);
+        }
+
+        .menu-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 30px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .menu-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        .menu-slider::-webkit-scrollbar-thumb {
+            background: var(--color-gold);
+            border-radius: 4px;
+        }
+
+        .menu-card {
+            flex: 0 0 300px;
+            background: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            scroll-snap-align: start;
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img {
+            height: 200px;
+            width: 100%;
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-info p {
+            font-size: 0.9rem;
+            color: var(--color-grey);
+        }
+
+        .last-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--color-gold);
+            color: var(--color-white);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .last-card h3 { color: var(--color-white); }
+        .last-card a {
+            margin-top: 15px;
+            background: var(--color-white);
+            color: var(--color-gold);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .menu-cta {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .advantages-section {
+            padding: var(--padding-section);
+            background: var(--color-white);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .advantage-item {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .advantage-item:hover {
+            border-color: var(--color-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+        }
+
+        .advantage-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .big-event-section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .big-event-text {
+            flex: 1;
+            padding: 80px 50px;
+            background: var(--color-black);
+            color: var(--color-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .big-event-text h2 {
+            color: var(--color-gold);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .big-event-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .big-event-img {
+            flex: 1;
+            min-width: 300px;
+            min-height: 400px;
+            background: url('https://images.unsplash.com/photo-1519225468359-2996bc010832?q=80&w=2076&auto=format&fit=crop') center center/cover;
+        }
+
+        .packages-section {
+            padding: var(--padding-section);
+            background: var(--color-light);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .package-card {
+            background: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .package-img {
+            height: 250px;
+            width: 100%;
+        }
+
+        .package-name {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .package-name h3 {
+            color: var(--color-gold-dark);
+        }
+
+        .package-info-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .info-item {
+            font-size: 0.9rem;
+            color: var(--color-grey);
+        }
+
+        .info-item i {
+            color: var(--color-gold);
+            margin-right: 5px;
+        }
+
+        .venue-section {
+            padding: var(--padding-section);
+            background: var(--color-white);
+        }
+
+        .venue-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .venue-img {
+            height: 250px;
+            width: 100%;
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+        
+        .venue-img:hover {
+            transform: scale(1.02);
+        }
+
+        .footer-section {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-info h3 { color: var(--color-gold); margin-bottom: 20px; }
+        .footer-info p { margin-bottom: 15px; display: flex; align-items: center; gap: 10px;}
+        .footer-info i { color: var(--color-gold); width: 20px; }
+
+        .footer-map {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+        }
+        
+        .footer-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        .social-link {
+            color: var(--color-white);
+            font-size: 1.5rem;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .social-link:hover { color: var(--color-gold); }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.2rem; }
+            .packages-grid, .venue-grid { grid-template-columns: repeat(2, 1fr); }
+            .big-event-text { padding: 40px 20px; }
+        }
+
+        @media (max-width: 600px) {
+            .advantages-grid { grid-template-columns: 1fr; }
+            .big-event-section { flex-direction: column; }
+            .packages-grid { grid-template-columns: 1fr; }
+            .venue-grid { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; }
+            
+            .hero-text-box { padding: 20px; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo">MasterPiece</div>
+            <a href="https://wa.me/6281234567890?text=Halo%20MasterPiece,%20saya%20ingin%20konsultasi%20catering" class="btn header-btn">
+                <i class="fa-brands fa-whatsapp"></i> Konsultasi
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text-box">
+                <h1>Solusi Nasi Box & Catering Berbagai Acara</h1>
+                <p>Hadirkan cita rasa istimewa di setiap momen spesial Anda. Layanan profesional, rasa konsisten, dan penyajian elegan.</p>
+                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pesan%20nasi%20box/catering" class="btn btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+                </a>
+                <span class="small-note text-light">Respon cepat < 30 menit (Jam Kerja)</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu Favorit Kami</h2>
+                <p>Pilihan menu terbaik yang siap memanjakan lidah tamu Anda.</p>
+            </div>
+
+            <div class="menu-slider">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1500" alt="Nasi Ayam Bakar" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Nasi Ayam Bakar Madu</h3>
+                        <p>Ayam bakar dengan bumbu madu spesial, nasi liwet, lalapan, dan sambal terasi.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1500" alt="Nasi Rendang" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Nasi Rendang Padang</h3>
+                        <p>Daging sapi pilihan dimasak rendang 8 jam, daun singkong, dan gulai nangka.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f457542c31?q=80&w=1500" alt="Nasi Kebuli" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Nasi Kebuli Kambing</h3>
+                        <p>Nasi berempah timur tengah dengan potongan daging kambing empuk dan acar segar.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1500" alt="Healthy Box" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Healthy Diet Box</h3>
+                        <p>Menu sehat rendah kalori, grilled chicken breast, brown rice, dan sayuran kukus.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=1500" alt="Fried Chicken" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Crispy Chicken Box</h3>
+                        <p>Ayam goreng tepung renyah, nasi putih, scrambled egg, dan saus keju.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-card last-card">
+                    <h3>Mau liat menu lebih banyak?</h3>
+                    <a href="LINK_GOOGLE_DRIVE_ANDA" target="_blank">Lihat Katalog Lengkap <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="menu-cta">
+                <a href="https://wa.me/6281234567890?text=Saya%20mau%20tanya%20menu%20hari%20ini" class="btn btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i> Mau coba menu apa hari ini?
+                </a>
+                <span class="small-note">Respon cepat < 30 menit (Jam Kerja)</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kenapa MasterPiece Catering?</h2>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <i class="fa-solid fa-star advantage-icon"></i>
+                    <h3>Konsistensi Rasa</h3>
+                    <p>Resep terstandarisasi memastikan rasa yang sama lezatnya di setiap pesanan Anda.</p>
+                </div>
+                <div class="advantage-item">
+                    <i class="fa-solid fa-clock advantage-icon"></i>
+                    <h3>Ketepatan Waktu</h3>
+                    <p>Kami menghargai waktu Anda. Pengiriman selalu terjadwal dan on-time.</p>
+                </div>
+                <div class="advantage-item">
+                    <i class="fa-solid fa-mobile-screen-button advantage-icon"></i>
+                    <h3>Pemesanan Mudah</h3>
+                    <p>Proses order yang simpel melalui WhatsApp dengan admin yang responsif.</p>
+                </div>
+                <div class="advantage-item">
+                    <i class="fa-solid fa-file-invoice-dollar advantage-icon"></i>
+                    <h3>Laporan Invoice</h3>
+                    <p>Administrasi rapi & transparan. Invoice lengkap untuk kebutuhan laporan kantor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="big-event-section">
+        <div class="big-event-text">
+            <h2>Kebutuhan Lebih Besar? <br>Kualitas Tetap Sama.</h2>
+            <p>MasterPiece Catering berpengalaman menangani event skala besar, mulai dari corporate gathering hingga pesta pernikahan mewah. Kami siap memastikan ribuan tamu Anda terlayani dengan sempurna.</p>
+            <p style="font-size: 0.9rem; font-style:italic; margin-top: 20px;">"Service excellent for your big moments"</p>
+        </div>
+        <div class="big-event-img" style="flex: 1; min-width: 300px;">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/10870449906500289444_0" 
+                 alt="Catering Event Besar" 
+                 style="width: 100%; height: 100%; object-fit: cover; display: block; min-height: 400px;">
+        </div>
+    </section>
+
+    <section class="packages-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pilihan Paket Event</h2>
+                <p>Solusi praktis untuk acara spesial Anda</p>
+            </div>
+            
+            <div class="packages-grid">
+                <div class="package-card">
+                    <img src="https://images.unsplash.com/photo-1588347818036-558601350947?q=80&w=1500" alt="Paket Box Exclusive" class="package-img">
+                    <div class="package-name">
+                        <h3>Paket Box Exclusive</h3>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <img src="https://images.unsplash.com/photo-1555243896-c709bfa0b564?q=80&w=1500" alt="Paket Prasmanan" class="package-img">
+                    <div class="package-name">
+                        <h3>Paket Prasmanan</h3>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1500" alt="Paket Ceremonial" class="package-img">
+                    <div class="package-name">
+                        <h3>Paket Ceremonial</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-info-row">
+                <div class="info-item"><i class="fa-solid fa-users"></i> Min. 100 Pax</div>
+                <div class="info-item"><i class="fa-solid fa-user-tie"></i> Chef & Server Profesional</div>
+                <div class="info-item"><i class="fa-solid fa-plate-wheat"></i> Include Peralatan Lengkap</div>
+                <div class="info-item"><i class="fa-solid fa-hourglass-start"></i> Set-up 2 Jam Sebelum Acara</div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20konsultasi%20paket%20event" class="btn btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i> Konsultasi Menu & Estimasi Budget
+                </a>
+                <span class="small-note">Respon cepat < 30 menit (Jam Kerja)</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="venue-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Punya Event Tapi Bingung Cari Venue?</h2>
+                <p>Tenang, kami bisa bantu menyediakan rekomendasi venue terbaik untuk acara Anda.</p>
+            </div>
+            <div class="venue-grid">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1500" alt="Venue 1" class="venue-img">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1500" alt="Venue 2" class="venue-img">
+                <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=1500" alt="Venue 3" class="venue-img">
+                <img src="https://images.unsplash.com/photo-1505944357481-516253436072?q=80&w=1500" alt="Venue 4" class="venue-img">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>MasterPiece Catering</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Bogor No. 123, Jawa Barat</p>
+                    <p><i class="fa-solid fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@masterpiece.com</p>
+                    
+                    <a href="https://wa.me/6281234567890" class="btn btn-wa" style="margin-top: 20px;">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi Kami
+                    </a>
+                    <br>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.462846872659!2d106.7973803147716!3d-6.589245195234674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5f2b8b0e77d%3A0x401576d14feb9e0!2sBogor%2C%20Bogor%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1625632145123!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2024 MasterPiece Catering. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.getElementById('header');
+        const logo = document.querySelector('.logo');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                logo.style.color = "#1a1a1a";
+            } else {
+                header.classList.remove('scrolled');
+                logo.style.color = "#ffffff";
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
