@@ -130,10 +130,18 @@
         }
 
         .logo {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-white); 
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;  
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled .logo-image {
+            height: 50px; 
         }
         
         header.scrolled .logo {
@@ -147,7 +155,7 @@
 
         .hero {
             height: 100vh;
-            background: url('hero-section.webp') no-repeat center center/cover;
+            background: url('heri-section.webp') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -341,7 +349,7 @@
             flex: 1;
             min-width: 300px;
             min-height: 400px;
-            background: url('https://images.unsplash.com/photo-1519225468359-2996bc010832?q=80&w=2076&auto=format&fit=crop') center center/cover;
+            background: url('foto venue 2.webp') center center/cover;
         }
 
         .packages-section {
@@ -494,7 +502,9 @@
 
     <header id="header">
         <div class="container header-content">
-            <div class="logo">MasterPiece</div>
+            <div class="logo">
+                 <img src="logo masterpiece pdf.webp" alt="MasterPiece Catering Logo" class="logo-image">
+            </div>
             <a href="https://wa.me/6281234567890?text=Halo%20MasterPiece,%20saya%20ingin%20konsultasi%20catering" class="btn header-btn">
                 <i class="fa-brands fa-whatsapp"></i> Konsultasi
             </a>
@@ -517,44 +527,30 @@
     <section class="menu-section">
         <div class="container">
             <div class="section-title">
-                <h2>Menu Favorit Kami</h2>
+                <h2>Paket Catering Favorit Kami</h2>
                 <p>Pilihan menu terbaik yang siap memanjakan lidah tamu Anda.</p>
             </div>
 
             <div class="menu-slider">
                 <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1500" alt="Nasi Ayam Bakar" class="menu-img">
+                    <img src="menu 1.webp" alt="Catering Rumahan" class="menu-img">
                     <div class="menu-info">
-                        <h3>Nasi Ayam Bakar Madu</h3>
-                        <p>Ayam bakar dengan bumbu madu spesial, nasi liwet, lalapan, dan sambal terasi.</p>
+                        <h3>Catering Rumahan</h3>
+                        <p>Berbagai menu rumahan yang bisa di kustomisasi, mulai dari ayam bakar hingga sambal yang sesuai dengan selera anda.</p>
                     </div>
                 </div>
                 <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1500" alt="Nasi Rendang" class="menu-img">
+                    <img src="menu 2.webp" alt="Nasi Box" class="menu-img">
                     <div class="menu-info">
-                        <h3>Nasi Rendang Padang</h3>
-                        <p>Daging sapi pilihan dimasak rendang 8 jam, daun singkong, dan gulai nangka.</p>
+                        <h3>Nasi Box</h3>
+                        <p>Paket praktis cocok buat kamu yang nggak mau ribet, cocok juga buat acara kantor atau jadi catering rutin di kantor. </p>
                     </div>
                 </div>
                 <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1563379926898-05f457542c31?q=80&w=1500" alt="Nasi Kebuli" class="menu-img">
+                    <img src="hampers.webp" alt="Nasi Hampers" class="menu-img">
                     <div class="menu-info">
-                        <h3>Nasi Kebuli Kambing</h3>
-                        <p>Nasi berempah timur tengah dengan potongan daging kambing empuk dan acar segar.</p>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1500" alt="Healthy Box" class="menu-img">
-                    <div class="menu-info">
-                        <h3>Healthy Diet Box</h3>
-                        <p>Menu sehat rendah kalori, grilled chicken breast, brown rice, dan sayuran kukus.</p>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=1500" alt="Fried Chicken" class="menu-img">
-                    <div class="menu-info">
-                        <h3>Crispy Chicken Box</h3>
-                        <p>Ayam goreng tepung renyah, nasi putih, scrambled egg, dan saus keju.</p>
+                        <h3>Nasi Hampers</h3>
+                        <p>Nasi box yang dikemas dalam hampers premium, cocok bua kamu di acara atau ingin memberikan kepada orang lain dengan cara yang berbeda.</p>
                     </div>
                 </div>
                 
@@ -610,7 +606,7 @@
             <p style="font-size: 0.9rem; font-style:italic; margin-top: 20px;">"Service excellent for your big moments"</p>
         </div>
         <div class="big-event-img" style="flex: 1; min-width: 300px;">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/10870449906500289444_0" 
+            <img src="foto venue 2.webp" 
                  alt="Catering Event Besar" 
                  style="width: 100%; height: 100%; object-fit: cover; display: block; min-height: 400px;">
         </div>
@@ -625,19 +621,19 @@
             
             <div class="packages-grid">
                 <div class="package-card">
-                    <img src="https://images.unsplash.com/photo-1588347818036-558601350947?q=80&w=1500" alt="Paket Box Exclusive" class="package-img">
+                    <img src="box event.webp" alt="Paket Box Exclusive" class="package-img">
                     <div class="package-name">
                         <h3>Paket Box Exclusive</h3>
                     </div>
                 </div>
                 <div class="package-card">
-                    <img src="https://images.unsplash.com/photo-1555243896-c709bfa0b564?q=80&w=1500" alt="Paket Prasmanan" class="package-img">
+                    <img src="prasmanan 2.webp" alt="Paket Prasmanan" class="package-img">
                     <div class="package-name">
                         <h3>Paket Prasmanan</h3>
                     </div>
                 </div>
                 <div class="package-card">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1500" alt="Paket Ceremonial" class="package-img">
+                    <img src="menu event.webp" alt="Paket Ceremonial" class="package-img">
                     <div class="package-name">
                         <h3>Paket Ceremonial</h3>
                     </div>
@@ -667,10 +663,10 @@
                 <p>Tenang, kami bisa bantu menyediakan rekomendasi venue terbaik untuk acara Anda.</p>
             </div>
             <div class="venue-grid">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1500" alt="Venue 1" class="venue-img">
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1500" alt="Venue 2" class="venue-img">
-                <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=1500" alt="Venue 3" class="venue-img">
-                <img src="https://images.unsplash.com/photo-1505944357481-516253436072?q=80&w=1500" alt="Venue 4" class="venue-img">
+                <img src="foto venue 1.webp" alt="Venue 1" class="venue-img">
+                <img src="foto venue 2baru.webp" alt="Venue 2" class="venue-img">
+                <img src="foto venue 3.webp" alt="Venue 3" class="venue-img">
+                <img src="foto venue 4.webp" alt="Venue 4" class="venue-img">
             </div>
         </div>
     </section>
@@ -680,8 +676,8 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <h3>MasterPiece Catering</h3>
-                    <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Bogor No. 123, Jawa Barat</p>
-                    <p><i class="fa-solid fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Jatiwaringin No.42, Cipinang Melayu, Kec. Makasar, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13620</p>
+                    <p><i class="fa-solid fa-phone"></i> +62-896-2441-2999</p>
                     <p><i class="fa-solid fa-envelope"></i> info@masterpiece.com</p>
                     
                     <a href="https://wa.me/6281234567890" class="btn btn-wa" style="margin-top: 20px;">
@@ -697,7 +693,7 @@
             </div>
             
             <div class="copyright">
-                © 2024 MasterPiece Catering. All Rights Reserved.
+                © 2026 MasterPiece Catering. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -727,4 +723,3 @@
     </script>
 </body>
 </html>
-
