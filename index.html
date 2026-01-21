@@ -155,6 +155,7 @@
             font-size: 0.8rem;
         }
 
+        /* --- HERO SECTION --- */
         .hero {
             display: block; 
             height: auto;
@@ -212,20 +213,31 @@
             font-weight: 300;
         }
 
+        /* --- TESTIMONIALS (Video) --- */
         .testimonials-section {
             padding: var(--padding-section);
             background-color: #fafafa;
         }
 
         .video-wrapper {
-            max-width: 800px;
+            max-width: 380px; /* Diperkecil agar seperti layar HP */
+            width: 100%;
             margin: 0 auto;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             background: #000;
+            border: 4px solid #333;
+        }
+        
+        .video-wrapper video {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
 
+        /* --- MENU SLIDER --- */
         .menu-section {
             padding: var(--padding-section);
             background-color: var(--color-light);
@@ -307,6 +319,7 @@
             text-align: center;
         }
 
+        /* --- ADVANTAGES --- */
         .advantages-section {
             padding: var(--padding-section);
             background: var(--color-white);
@@ -344,6 +357,7 @@
             font-size: 1.3rem;
         }
 
+        /* --- BIG EVENT --- */
         .big-event-section {
             display: flex;
             flex-wrap: wrap;
@@ -378,6 +392,7 @@
             background: url('foto venue 2.webp') center center/cover;
         }
 
+        /* --- PACKAGES --- */
         .packages-section {
             padding: var(--padding-section);
             background: var(--color-light);
@@ -444,6 +459,7 @@
             margin-right: 5px;
         }
 
+        /* --- VENUE --- */
         .venue-section {
             padding: var(--padding-section);
             background: var(--color-white);
@@ -555,6 +571,7 @@
         }
         /* --- END BOOKING FORM STYLES --- */
 
+        /* --- FOOTER --- */
         .footer-section {
             background: var(--color-black);
             color: var(--color-white);
@@ -608,6 +625,7 @@
             color: #777;
         }
 
+        /* --- LIGHTBOX --- */
         .lightbox {
             display: none;
             position: fixed;
@@ -659,6 +677,7 @@
             cursor: pointer;
         }
 
+        /* --- MEDIA QUERIES --- */
         @media (max-width: 900px) {
             .hero h1 { font-size: 2.2rem; }
             .venue-grid { grid-template-columns: repeat(2, 1fr); }
@@ -675,7 +694,7 @@
             .hero-text-box { padding: 20px; }
             .hero h1 { font-size: 1.8rem; }
             .lightbox-content { max-width: 95%; }
-            .booking-form { padding: 25px; } /* Adjust padding for mobile form */
+            .booking-form { padding: 25px; } 
         }
     </style>
 </head>
