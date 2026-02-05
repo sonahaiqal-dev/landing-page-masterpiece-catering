@@ -138,7 +138,7 @@
 
         .logo-image {
             height: 100px;
-            width: auto;  
+            width: auto;   
             transition: all 0.3s ease;
         }
 
@@ -155,17 +155,16 @@
             font-size: 0.8rem;
         }
 
-        /* --- HERO SECTION --- */
         .hero {
             display: block; 
             height: auto;
             position: relative;
-            background-color: var(--color-white);
+            background-color: var(--color-black);
         }
 
         .hero-banner-wrapper {
             width: 100%;
-            height: 60vh;
+            height: 85vh; 
             position: relative;
             overflow: hidden;
         }
@@ -174,20 +173,18 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: brightness(0.7); 
         }
         
-        .hero-banner-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.2); 
-        }
-
         .hero-content {
-            position: relative;
-            padding: 60px 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 100%;
+            padding: 0 20px;
             text-align: center;
-            background: var(--color-white);
         }
 
         .hero-text-box {
@@ -195,32 +192,37 @@
             backdrop-filter: none;
             border: none;
             padding: 0;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            color: var(--color-black);
-            font-size: 3rem;
+            color: var(--color-white);
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            text-shadow: none;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
         .hero p {
-            color: var(--color-grey);
-            font-size: 1.2rem;
+            color: var(--color-white);
+            font-size: 1.3rem;
             margin-bottom: 30px;
-            font-weight: 300;
+            font-weight: 400;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
-        /* --- TESTIMONIALS (Video) --- */
+        .hero .small-note {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
         .testimonials-section {
             padding: var(--padding-section);
             background-color: #fafafa;
         }
 
         .video-wrapper {
-            max-width: 380px; /* Diperkecil agar seperti layar HP */
+            max-width: 380px;
             width: 100%;
             margin: 0 auto;
             border-radius: 20px;
@@ -237,7 +239,6 @@
             object-fit: cover;
         }
 
-        /* --- MENU SLIDER --- */
         .menu-section {
             padding: var(--padding-section);
             background-color: var(--color-light);
@@ -250,6 +251,7 @@
             padding-bottom: 30px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
+            align-items: stretch; 
         }
 
         .menu-slider::-webkit-scrollbar {
@@ -268,6 +270,8 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             scroll-snap-align: start;
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-card:hover {
@@ -281,6 +285,7 @@
 
         .menu-info {
             padding: 20px;
+            flex-grow: 1; 
         }
 
         .menu-info h3 {
@@ -294,24 +299,22 @@
         }
 
         .last-card {
+            padding: 0;
+            background: var(--color-white);
+            border: 1px solid #dcdcdc; 
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background: var(--color-gold);
-            color: var(--color-white);
-            text-align: center;
-            padding: 20px;
+            justify-content: center;
         }
         
-        .last-card h3 { color: var(--color-white); }
-        .last-card a {
-            margin-top: 15px;
-            background: var(--color-white);
-            color: var(--color-gold);
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-weight: 600;
+        .barcode-img {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+            object-fit: cover;
+            border: none;
         }
 
         .menu-cta {
@@ -319,7 +322,6 @@
             text-align: center;
         }
 
-        /* --- ADVANTAGES --- */
         .advantages-section {
             padding: var(--padding-section);
             background: var(--color-white);
@@ -327,9 +329,9 @@
 
         .advantages-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 40px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -357,7 +359,6 @@
             font-size: 1.3rem;
         }
 
-        /* --- BIG EVENT --- */
         .big-event-section {
             display: flex;
             flex-wrap: wrap;
@@ -392,7 +393,6 @@
             background: url('foto venue 2.webp') center center/cover;
         }
 
-        /* --- PACKAGES --- */
         .packages-section {
             padding: var(--padding-section);
             background: var(--color-light);
@@ -459,7 +459,6 @@
             margin-right: 5px;
         }
 
-        /* --- VENUE --- */
         .venue-section {
             padding: var(--padding-section);
             background: var(--color-white);
@@ -467,22 +466,23 @@
 
         .venue-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr); 
             gap: 15px;
         }
 
         .venue-img {
-            height: 250px;
+            height: 250px; 
             width: 100%;
             border-radius: 4px;
             transition: transform 0.3s;
+            object-fit: cover;
         }
         
         .venue-img:hover {
             transform: scale(1.02);
+            z-index: 2;
         }
 
-        /* --- STYLES KHUSUS BOOKING FORM --- */
         .booking-section {
             padding: var(--padding-section);
             background-color: var(--color-light);
@@ -523,11 +523,11 @@
 
         .booking-form {
             padding: 40px;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
         .booking-form.active {
-            display: block; /* Show active form */
+            display: block;
             animation: fadeIn 0.5s;
         }
 
@@ -569,9 +569,7 @@
             text-align: center;
             margin-top: 10px;
         }
-        /* --- END BOOKING FORM STYLES --- */
 
-        /* --- FOOTER --- */
         .footer-section {
             background: var(--color-black);
             color: var(--color-white);
@@ -593,7 +591,7 @@
 
         .footer-info h3 { color: var(--color-gold); margin-bottom: 20px; }
         .footer-info p { margin-bottom: 15px; display: flex; align-items: center; gap: 10px;}
-        .footer-info i { color: var(--color-gold); width: 20px; }
+        .footer-info i { color: var(--color-gold); width: 20px; text-align: center; }
 
         .footer-map {
             flex: 1;
@@ -625,7 +623,6 @@
             color: #777;
         }
 
-        /* --- LIGHTBOX --- */
         .lightbox {
             display: none;
             position: fixed;
@@ -677,22 +674,21 @@
             cursor: pointer;
         }
 
-        /* --- MEDIA QUERIES --- */
         @media (max-width: 900px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
             .venue-grid { grid-template-columns: repeat(2, 1fr); }
             .big-event-text { padding: 40px 20px; }
-            .hero-banner-wrapper { height: 40vh; } 
+            .hero-banner-wrapper { height: 70vh; } 
         }
 
         @media (max-width: 600px) {
             .logo-image { height: 60px; }
             .advantages-grid { grid-template-columns: 1fr; }
             .big-event-section { flex-direction: column; }
-            .venue-grid { grid-template-columns: 1fr; }
+            .venue-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .footer-content { flex-direction: column; }
             .hero-text-box { padding: 20px; }
-            .hero h1 { font-size: 1.8rem; }
+            .hero h1 { font-size: 2rem; }
             .lightbox-content { max-width: 95%; }
             .booking-form { padding: 25px; } 
         }
@@ -714,15 +710,18 @@
     <section class="hero">
         <div class="hero-banner-wrapper">
             <img src="hero-section.webp" alt="MasterPiece Catering Banner">
-        </div>
-        <div class="hero-content">
-            <div class="hero-text-box">
-                <h1>Solusi Nasi Box & Catering Berbagai Acara</h1>
-                <p>Hadirkan cita rasa istimewa di setiap momen spesial Anda. Layanan profesional, rasa konsisten, dan penyajian elegan.</p>
-                <a href="#booking-area" class="btn btn-wa">
-                    <i class="fa-solid fa-cart-shopping"></i> Pesan Sekarang
-                </a>
-                <span class="small-note">Respon cepat < 30 menit (Jam Kerja)</span>
+            
+            <div class="hero-content">
+                <div class="hero-text-box">
+                    <h1>Solusi Nasi Box & Catering Berbagai Acara</h1>
+                    <p>Hadirkan cita rasa istimewa di setiap momen spesial Anda. Layanan profesional, rasa konsisten, dan penyajian elegan.</p>
+                    
+                    <a href="https://wa.me/6289624412999?text=Halo%20MasterPiece,%20saya%20mau%20pesan%20catering" class="btn btn-wa" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+                    </a>
+                    
+                    <span class="small-note">Respon cepat < 30 menit (Jam Kerja)</span>
+                </div>
             </div>
         </div>
     </section>
@@ -746,36 +745,63 @@
     <section class="menu-section">
         <div class="container">
             <div class="section-title">
-                <h2>Paket Catering Favorit Kami</h2>
-                <p>Pilihan menu terbaik yang siap memanjakan lidah tamu Anda.</p>
+                <h2>Tentukan Paket Menu Pilihan Anda</h2>
+                <p>Masterpiece Catering menyediakan berbagai pilihan menu yang bisa disesuaikan dengan tema acara.</p>
             </div>
 
             <div class="menu-slider">
-                 <div class="menu-card">
+                <div class="menu-card">
+                    <img src="menu 2.webp" alt="Nasi Box" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Catering Wedding</h3>
+                        <p>Berikan kenyamanan maksimal bagi para tamu dengan pilihan paket catering yang higienis dan menggugah selera.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="menu 2.webp" alt="Nasi Box" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Event Corporate & Kantor</h3>
+                        <p>Ketepatan waktu dan kualitas rasa adalah prioritas kami, demi kelancaran setiap event perusahaan Anda.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
                     <img src="menu 2.webp" alt="Nasi Box" class="menu-img">
                     <div class="menu-info">
                         <h3>Nasi Box</h3>
-                        <p>Paket praktis cocok buat kamu yang nggak mau ribet, cocok juga buat acara kantor atau jadi catering rutin di kantor. </p>
+                        <p>Paket praktis cocok buat kamu yang nggak mau ribet, cocok juga buat acara kantor atau jadi catering rutin.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="menu 2.webp" alt="Nasi Box" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Snack Box / Coffee Break</h3>
+                        <p>Lengkapi kemeriahan pesta Anda dengan pilihan kudapan manis dan gurih yang menggugah selera.</p>
                     </div>
                 </div>
                 <div class="menu-card">
                     <img src="menu 1.webp" alt="Catering Rumahan" class="menu-img">
                     <div class="menu-info">
                         <h3>Catering Rumahan</h3>
-                        <p>Berbagai menu rumahan yang bisa di kustomisasi, mulai dari ayam bakar hingga sambal yang sesuai dengan selera anda.</p>
+                        <p>Berbagai menu rumahan yang bisa di kustomisasi, mulai dari ayam bakar hingga sambal yang sesuai selera.</p>
                     </div>
                 </div>
                 <div class="menu-card">
                     <img src="hampers .webp" alt="Nasi Hampers" class="menu-img">
                     <div class="menu-info">
-                        <h3>Nasi Hampers</h3>
-                        <p>Nasi box yang dikemas dalam hampers premium, cocok bua kamu di acara atau ingin memberikan kepada orang lain dengan cara yang berbeda.</p>
+                        <h3>Paket Hampers</h3>
+                        <p>Nasi box yang dikemas dalam hampers premium, cocok buat kamu ingin memberikan kepada orang lain.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="hampers .webp" alt="Nasi Hampers" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Table Set Event</h3>
+                        <p>Kami tidak hanya menghidangkan makanan, kami menciptakan suasana. Layanan table set cantik.</p>
                     </div>
                 </div>
                 
                 <div class="menu-card last-card">
-                    <h3>Mau liat menu lebih banyak?</h3>
-                    <a href="LINK_GOOGLE_DRIVE_ANDA" target="_blank">Lihat Katalog Lengkap <i class="fa-solid fa-arrow-right"></i></a>
+                    <img src="https://placehold.co/300x400/png?text=QR+Code" alt="Scan Barcode Menu" class="barcode-img">
                 </div>
             </div>
         </div>
@@ -787,6 +813,12 @@
                 <h2>Kenapa MasterPiece Catering?</h2>
             </div>
             <div class="advantages-grid">
+                <div class="advantage-item">
+                    <i class="fa-solid fa-face-smile advantage-icon"></i>
+                    <h3>Dipercaya +7895 Customers</h3>
+                    <p>Telah menjadi pilihan utama ribuan pelanggan puas untuk berbagai acara spesial mereka.</p>
+                </div>
+                
                 <div class="advantage-item">
                     <i class="fa-solid fa-star advantage-icon"></i>
                     <h3>Konsistensi Rasa</h3>
@@ -873,11 +905,17 @@
                 <h2>Punya Event Tapi Bingung Cari Venue?</h2>
                 <p>Tenang, kami bisa bantu menyediakan rekomendasi venue terbaik untuk acara Anda.</p>
             </div>
+            
             <div class="venue-grid">
-                <img src="foto venue 1.webp" alt="Venue 1" class="venue-img">
-                <img src="foto venue 2baru.webp" alt="Venue 2" class="venue-img">
-                <img src="foto venue 3.webp" alt="Venue 3" class="venue-img">
-                <img src="foto venue 4.webp" alt="Venue 4" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+1" alt="Venue 1" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+2" alt="Venue 2" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+3" alt="Venue 3" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+4" alt="Venue 4" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+5" alt="Venue 5" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+6" alt="Venue 6" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+7" alt="Venue 7" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+8" alt="Venue 8" class="venue-img">
+                <img src="https://placehold.co/400x300?text=Venue+9" alt="Venue 9" class="venue-img">
             </div>
         </div>
     </section>
@@ -986,7 +1024,7 @@
                 </div>
                 
                 <div class="footer-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0746230137283!2d106.90668647499064!3d-6.253898893734601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a8774b036d%3A0x6fd961450cdb582c!2sCatering%20Masterpiece!5e0!3m2!1sen!2sid!4v1767785323689!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0746230137283!2d106.90668647499064!3d-6.253898893734601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a8774b036d%3A0x6fd961450cdb582c!2sCatering%20Masterpiece!5e0!3m2!1sen!2sid!4v1767785323689!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>     
                 </div>
             </div>
             
@@ -1028,7 +1066,7 @@
         const lightboxImg = document.getElementById('lightboxImg');
         const closeBtn = document.querySelector('.close-lightbox');
 
-        const images = document.querySelectorAll('.menu-card .menu-img, .package-card .package-img');
+        const images = document.querySelectorAll('.menu-card .menu-img, .package-card .package-img, .venue-img');
 
         images.forEach(img => {
             img.style.cursor = 'pointer';
@@ -1050,18 +1088,13 @@
             }
         }
 
-        /* --- SCRIPT UNTUK BOOKING FORM --- */
-        // 1. Fungsi Ganti Tab
         function switchTab(tabName) {
-            // Hide semua form
             document.getElementById('form-catering').classList.remove('active');
             document.getElementById('form-venue').classList.remove('active');
             
-            // Deactivate semua tombol
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // Activate yang dipilih
             if(tabName === 'catering') {
                 document.getElementById('form-catering').classList.add('active');
                 buttons[0].classList.add('active');
@@ -1071,9 +1104,8 @@
             }
         }
 
-        // 2. Fungsi Kirim Catering ke WA
         function sendCatering(e) {
-            e.preventDefault(); // Mencegah reload halaman
+            e.preventDefault(); 
             
             const nama = document.getElementById('cat_nama').value;
             const paket = document.getElementById('cat_paket').value;
@@ -1081,7 +1113,6 @@
             const wa = document.getElementById('cat_wa').value;
             const alamat = document.getElementById('cat_alamat').value;
 
-            // Format Pesan
             const text = `Halo Admin MasterPiece, saya ingin pesan catering:%0A%0A` +
                          `*Nama:* ${nama}%0A` +
                          `*Paket:* ${paket}%0A` +
@@ -1090,11 +1121,9 @@
                          `*Alamat:* ${alamat}%0A%0A` +
                          `Mohon info total harganya. Terima kasih.`;
 
-            // Buka WhatsApp
             window.open(`https://wa.me/6289624412999?text=${text}`, '_blank');
         }
 
-        // 3. Fungsi Kirim Venue ke WA
         function sendVenue(e) {
             e.preventDefault();
 
@@ -1104,7 +1133,6 @@
             const dekor = document.getElementById('ven_dekor').value;
             const tanggal = document.getElementById('ven_tanggal').value;
 
-            // Format tanggal agar lebih enak dibaca (mengganti T dengan Spasi)
             const tanggalFormat = tanggal.replace('T', ' Pukul ');
 
             const text = `Halo Admin MasterPiece, saya ingin booking/tanya venue:%0A%0A` +
@@ -1120,4 +1148,3 @@
     </script>
 </body>
 </html>
-
